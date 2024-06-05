@@ -6,8 +6,8 @@ class atendimentoController {
         return atendimentoModel.toList();
     }
 
-    create() {
-        return atendimentoModel.toCreate();
+    create(novoAtendimento) {
+        return atendimentoModel.toCreate(novoAtendimento);
     }
 
     update(atendimentoAtualizado, id) {

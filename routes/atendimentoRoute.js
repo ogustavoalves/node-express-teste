@@ -2,7 +2,6 @@ const { Router } = require("express");
 
 const router = Router();
 const atendimentoController = require("../controllers/atendimentoController");
-const atendimentoModel = require("../models/atendimentoModel");
 
 router.get("/atendimentos", (req, res) => {
     const listaAtendimentos = atendimentoController.search();
@@ -13,10 +12,8 @@ router.get("/atendimentos", (req, res) => {
 
 router.post("/atendimentos", (req, res) => {
     const novoAtendimento = req.body;
-    const atendimento = atendimentoModel.toCreate(novoAtendimento);
-    atendimento
-    .then((atendimentoCriado) => res.status(201).json(atendimentoCriado))
-    .catch((error) => res.status(400).json(error.message));
+    const atendimento = atendimentoController.create(novoAtendimento);
+    atendimento.then((atendimentoCriado) => res.status(201).json(atendimentoCriado)).catch((error) => res.status(400).json(error.message));
 });
 
 router.put("/atendimentos/:id", (req, res) => {

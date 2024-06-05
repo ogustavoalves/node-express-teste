@@ -4,8 +4,8 @@ const connectionDB = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "password_here",
-    database: "database_name_here",
+    password: "Wxdvhekyzl141020",
+    database: "controle_atendimento",
 });
 
 module.exports = connectionDB;
